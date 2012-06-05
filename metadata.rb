@@ -31,6 +31,11 @@ attribute "mysql/data_dir",
   :description => "Location of mysql databases",
   :default => "/var/lib/mysql"
 
+attribute "mysql/port",
+  :display_name => "MySQL Port",
+  :description => "Port mysql listens on",
+  :default => "3306"
+
 attribute "mysql/conf_dir",
   :display_name => "MySQL Conf Directory",
   :description => "Location of mysql conf files",
@@ -45,6 +50,26 @@ attribute "mysql/tunable",
   :display_name => "MySQL Tunables",
   :description => "Hash of MySQL tunable attributes",
   :type => "hash"
+
+attribute "mysql/tunable/myisam",
+  :display_name => "MySQL MyISAM Tunables",
+  :description => "Hash of MySQL tunable attributes specific to MyISAM",
+  :type => "hash"
+
+attribute "mysql/tunable/innodb",
+  :display_name => "MySQL InnoDB Tunables",
+  :description => "Hash of MySQL tunable attributes specific to InnoDB",
+  :type => "hash"
+
+attribute "mysql/percona",
+  :display_name => "Percona",
+  :description => "Hash of Percona specific options",
+  :type => "hash"
+
+attribute "mysql/percona/key_id",
+  :display_name => "Percona apt repo GPG key id",
+  :default => "1C4CBDCDCD2EFD2A"
+
 
 attribute "mysql/tunable/key_buffer",
   :display_name => "MySQL Tuntable Key Buffer",
@@ -130,3 +155,8 @@ attribute "mysql/client/bin_dir",
 attribute "mysql/client/ruby_dir",
   :display_name => "Ruby Executable Directory which should gain MySQL support",
   :default => "system ruby"
+
+attribute "mysql/xtrabackup",
+  :display_name => "XtraBackup",
+  :description => "Hash of options for XtraBackup from Percona",
+  :type => "hash"
